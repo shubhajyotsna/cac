@@ -1,0 +1,147 @@
+<html>
+ <head><title>Campus Visit</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    
+ </head>
+ <body>
+    
+<div class="header">
+<div class="main">
+<div class="register">
+<h2>FEEDBACK</h2>
+<div class="register">
+ 
+ </div>
+ <script>
+
+    $(document).on('keyup', '.passworduser', function() {
+      var txtInput = $(this).val();
+      var regPass = "^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[#?!@$%^&*-_]).{8,}$";
+      var color = "black";
+      if (txtInput.length > 7) {
+        if (!txtInput.match(regPass)) {
+          $('#password_strength').html("Include a special character and at least one capital letter");
+          $("#password_strength").css("color", color);
+    
+        } else {
+          $('#password_strength').html("");
+    
+        }
+      } else {
+        $('#password_strength').html("Password to be a minimum of 8 characters");
+        $("#password_strength").css("color", color);
+    
+      }
+    });
+    
+            function test(event)
+            {
+                let code=event.which;
+                if(code>47&&code<58)
+                return false;
+                else
+                return true;
+            }
+            email.onkeydown=function()
+           {
+           
+            const regex1=/^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{2,3})$/;
+            const regex2= /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,20})\.([a-z]{2,3})$/;
+           if(regex1.test(email.value)||regex2.test(email.value))
+               {
+               span[0].innerText="Your Email is Valid";
+               span[0].style.color="lime"; } else{
+               span[0].innerText="Invalid Email Id";
+               span[0].style.color="black"; }
+           
+           }
+         number.onkeydown=function()
+           {
+              const regnum=/^[0-9]{10}$/;
+             
+              if(regnum.test(number.value)) {
+                span[1].innerText="Your Number is Valid";
+                span[1].style.color="lime";   }
+                else {       
+               span[1].innerText="Invalid Phone Number";
+               span[1].style.color="black"; }
+           }
+    
+            function validate()
+            {
+               var username=document.getElementById("uname");
+               var password=document.getElementById("pass");
+               var number=document.getElementById('number');
+               var email=document.getElementById('email');
+               var span=document.getElementsByTagName('span');
+              
+                
+               if(username.value.trim()=="")
+               {
+                   alert("Blank Username");
+                   document.getElementById("lbuser").style.visibility="visible";
+                   return false;
+               }
+               else if(password.value.trim()=="")
+               {
+                   alert("Blank Password");
+                   return false;
+               }
+               else if(password.value.trim().length<8)
+               {
+                   alert("Password is too short");
+                   return false;
+               }
+    
+               $(form).submit(function(){
+        $('.alert-success').show();
+        event.preventDefault(); // if you want to send data only, do not reload page.
+    });
+    
+            }
+        </script>
+        <form  onsubmit="return validate()" id="register" name="std_details" method="post">
+            <label for ="uname">Name :</label><br><br>
+            <input id="uname" onkeypress="return test(event)" placeholder="Name" type="text"/>
+            <label id="lbuser" style="color:rgb(70, 4, 4); visibility: hidden;">Invalid User</label><br><br>
+            <label>Address</label><br>
+            <textarea height="5" id="s" width="50"></textarea><br><br>
+            <label for ="email">Email :</label><br><br>
+            <input type="email" name="email" id="email" placeholder="Enter Your email" ><br><br>
+
+            <label for ="pass">Password :</label><br><br>
+            <input type="text" class="passworduser" placeholder="password" id="pass">
+            <div id="password_strength"></div><br><br><Br><br>
+            What are things that you like:<br>
+            <div>
+            <ul>
+            <input type="checkbox" name="camp" id="chck">Campus
+            <br><input type="checkbox" name="camp" id="chck">Location
+            <br><input type="checkbox" name="camp" id="chck">Student 
+            <br><input type="checkbox" name="camp" id="chck">Atmosphere
+            <br><input type="checkbox" name="camp" id="chck">Dorm Room
+            <br><input type="checkbox" name="camp" id="chck">Sport
+            </ul>
+            </div><br>
+             what interested this university:<br>
+            <ul>
+            <input type="radio" name="iu">Friends
+            <br><input type="radio" name="iu">Television
+            <br><input type="radio" name="iu">Internet
+            <br><input type="radio" name="iu">Others
+            </ul>
+            <br>
+            <label>
+            Comment</label><br>
+            <textarea  height="5" id="s" width="50"></textarea><br><br><br>
+            <button id="submit">Submit</button><br><br>
+           
+            <button id="submit">Reset</button>
+            </form>
+            </div>
+            </div>
+            </div>
+
+ </body>
+
+</html>
